@@ -3,7 +3,7 @@ header.site{top:12px;margin:12px auto 0;width:min(1200px,calc(100% - 24px));bord
 header.site .wrap{height:68px;width:calc(100% - 40px)}
 .btn{border-radius:999px;padding:10px 12px 10px 28px;gap:14px}
 .btn .arw{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:color-mix(in oklch,currentColor 16%,transparent);transition:transform .35s cubic-bezier(.2,.7,.2,1),background .2s}
-.btn:hover .arw{transform:rotate(-45deg);background:color-mix(in oklch,currentColor 26%,transparent)}
+.btn:hover .arw{transform:translateX(3px);background:color-mix(in oklch,currentColor 26%,transparent)}
 .btn-ghost,.btn-line{padding:15px 28px}
 .hero{grid-template-columns:1fr;min-height:700px;background:var(--main-deep)}
 .hero-visual{position:absolute;inset:0}
@@ -19,7 +19,6 @@ header.site .wrap{height:68px;width:calc(100% - 40px)}
 .float-cta{display:inline-flex;align-items:center;gap:12px;position:fixed;right:84px;bottom:22px;z-index:95;background:var(--main);color:var(--on-main);font-weight:700;font-size:14px;padding:8px 8px 8px 22px;border-radius:999px;box-shadow:0 12px 30px color-mix(in oklch,var(--main-deep) 35%,transparent);opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity .3s,transform .3s,visibility .3s}
 .float-cta.show{opacity:1;visibility:visible;transform:none}
 .float-cta .arw{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--on-accent)}
-.float-cta:hover .arw{transform:rotate(-45deg)}
 /* メリハリ：見出しを太く・数字を大きく */
 .h2{font-weight:800}
 .stats b{font-size:44px}
@@ -30,6 +29,15 @@ header.site .wrap{height:68px;width:calc(100% - 40px)}
 #platform h2,#platform h3{color:var(--on-main)}
 #platform .card h3{color:var(--text)}
 #platform .card p{color:var(--text-sub)}
+/* 静と動：ボタンやカードは動かさず静かに、写真だけをゆっくり動かす */
+.btn::after,.btn-cta::after{display:none}
+.card:hover{transform:none}
+.card .img{transform-origin:left bottom;transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter .6s}
+.card:hover .img{transform:scale(1.06)}
+.program .pimg{transition:transform 1.6s cubic-bezier(.2,.7,.2,1),filter .6s}
+.program:hover .pimg{transform:scale(1.05)}
+.cta::before{animation:imgDrift 28s ease-in-out infinite alternate}
+@keyframes imgDrift{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.14) translate(-2%,-2%)}}
 @media (max-width:1024px){
   body.menu-open .gnav{top:calc(100% + 10px);border:1px solid var(--line);border-radius:24px}
   .hero-visual{height:auto;min-height:0;order:0}
