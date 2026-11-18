@@ -1,0 +1,31 @@
+/* dxweb2 02 フローティング：浮かぶカプセル型ヘッダー／写真の上に重ねたカード／丸い矢印つきボタン／追従する相談ボタン */
+header.site{top:12px;margin:12px auto 0;width:min(1200px,calc(100% - 24px));border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow-s)}
+header.site .wrap{height:68px;width:calc(100% - 40px)}
+.btn{border-radius:999px;padding:10px 12px 10px 28px;gap:14px}
+.btn .arw{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:color-mix(in oklch,currentColor 16%,transparent);transition:transform .35s cubic-bezier(.2,.7,.2,1),background .2s}
+.btn:hover .arw{transform:rotate(-45deg);background:color-mix(in oklch,currentColor 26%,transparent)}
+.btn-ghost,.btn-line{padding:15px 28px}
+.hero{grid-template-columns:1fr;min-height:700px;background:var(--main-deep)}
+.hero-visual{position:absolute;inset:0}
+.hero-visual::before{background:linear-gradient(90deg,color-mix(in oklch,var(--main-deep) 55%,transparent) 0%,transparent 60%)}
+.hero-visual .slide{transition:opacity 1.6s ease,transform 12s linear}
+.hero-visual .slide.on{transform:scale(1.1)}
+.hero-copy{justify-self:start;align-self:center;max-width:580px;margin:80px 0 100px max(24px,calc((100vw - var(--w))/2));padding:48px 44px;border-radius:28px;background:color-mix(in oklch,var(--main) 86%,transparent);backdrop-filter:blur(10px);box-shadow:0 30px 60px color-mix(in oklch,var(--main-deep) 35%,transparent);pointer-events:auto}
+.stats>div{border-radius:20px}
+.card{border-radius:24px}
+.card .num{border-radius:14px}
+.program{border-radius:28px}
+.route .pt{box-shadow:var(--shadow-s)}
+.float-cta{display:inline-flex;align-items:center;gap:12px;position:fixed;right:84px;bottom:22px;z-index:95;background:var(--main);color:var(--on-main);font-weight:700;font-size:14px;padding:8px 8px 8px 22px;border-radius:999px;box-shadow:0 12px 30px color-mix(in oklch,var(--main-deep) 35%,transparent);opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity .3s,transform .3s,visibility .3s}
+.float-cta.show{opacity:1;visibility:visible;transform:none}
+.float-cta .arw{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--on-accent)}
+.float-cta:hover .arw{transform:rotate(-45deg)}
+@media (max-width:1024px){
+  body.menu-open .gnav{top:calc(100% + 10px);border:1px solid var(--line);border-radius:24px}
+  .hero-visual{height:auto;min-height:0;order:0}
+  .hero-copy{margin:64px 20px 72px;padding:34px 26px}
+}
+@media (max-width:640px){
+  header.site .wrap{height:60px}
+  .float-cta{left:16px;right:84px;bottom:20px;justify-content:space-between}
+}
