@@ -1,0 +1,50 @@
+/* dxweb2 05 スプリット：左に文章・右に写真を半分ずつ／角ばった四角いボタン／写真は境目のアクセント線でくっきり */
+.topbar{text-align:left;padding-left:max(24px,calc((100vw - var(--w))/2))}
+.btn,.btn-cta{border-radius:2px}
+.btn{transition:background .25s,color .25s,border-color .25s}
+.btn-cta{background:var(--main);color:var(--on-main);box-shadow:none}
+.btn-cta:hover{background:var(--main-dark)}
+.hero{grid-template-columns:1fr 1fr;background:var(--surface);min-height:660px}
+.hero-copy{color:var(--text);padding-right:64px}
+.hero-copy .label{color:var(--sub)}
+.hero-copy h1 em{color:var(--main);background:linear-gradient(transparent 78%,color-mix(in oklch,var(--accent) 70%,transparent) 78%)}
+.hero-copy p{color:var(--text-sub);opacity:1}
+.hero-copy .btn-accent{background:var(--main);color:var(--on-main)}
+.hero-copy .btn-accent:hover{background:var(--main-dark)}
+.hero-copy .btn-ghost{border-color:var(--main);color:var(--main)}
+.hero-copy .btn-ghost:hover{background:var(--light)}
+.hero-visual{border-left:8px solid var(--accent)}
+.hero-visual::before{display:none}
+.hero-visual .slide{transition:opacity 1.6s ease,transform 10s linear}
+.hero-visual .slide.on{transform:scale(1.08)}
+.stats{gap:0;border-top:2px solid var(--main);border-bottom:1px solid var(--line)}
+.stats>div{border:0;border-radius:0;background:transparent}
+.stats>div+div{border-left:1px solid var(--line)}
+.card{border-radius:4px}
+.card .num{border-radius:2px}
+.program{grid-template-columns:1fr 1fr;border-radius:0;box-shadow:none;border-top:4px solid var(--main)}
+.program .pimg .tag,.program .kind{border-radius:2px}
+/* メリハリ：見出しを太く・数字を大きく */
+.h2{font-weight:800}
+.stats b{font-size:44px}
+/* メリハリ：濃い色の帯セクション（#platform） */
+#platform{background:var(--main-deep);color:var(--on-main)}
+#platform .label{color:var(--accent)}
+#platform .lead,#platform p{color:color-mix(in oklch,var(--on-main) 82%,transparent)}
+#platform h2,#platform h3{color:var(--on-main)}
+#platform .card h3{color:var(--text)}
+#platform .card p{color:var(--text-sub)}
+/* 静と動：ボタンやカードは動かさず静かに、写真だけをゆっくり動かす */
+.btn::after,.btn-cta::after{display:none}
+.card:hover{transform:none}
+.card .img{transform-origin:left bottom;transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter .6s}
+.card:hover .img{transform:scale(1.06)}
+.program .pimg{transition:transform 1.6s cubic-bezier(.2,.7,.2,1),filter .6s}
+.program:hover .pimg{transform:scale(1.05)}
+.cta::before{animation:imgDrift 28s ease-in-out infinite alternate}
+@keyframes imgDrift{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.14) translate(-2%,-2%)}}
+@media (max-width:1024px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-copy{padding-right:24px}
+  .hero-visual{border-left:0;border-bottom:6px solid var(--accent)}
+}
