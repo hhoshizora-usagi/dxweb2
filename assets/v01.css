@@ -22,6 +22,19 @@
 .program{border-radius:20px}
 .cta .wrap{grid-template-columns:1fr;text-align:center;justify-items:center}
 .cta .btns{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center}
+/* メリハリ：見出しを太く・数字を大きく */
+.h2{font-weight:800}
+.stats b{font-size:44px}
+/* メリハリ：濃い色の帯セクション（#flow） */
+#flow{background:var(--main-deep);color:var(--on-main)}
+#flow .label{color:var(--accent)}
+#flow .lead,#flow p{color:color-mix(in oklch,var(--on-main) 82%,transparent)}
+#flow h2,#flow h3{color:var(--on-main)}
+#flow .route .pt{background:transparent;border-color:var(--on-main);color:var(--on-main)}
+#flow .route li:last-child .pt{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+#flow .route li:last-child .pt::after{color:var(--accent)}
+#flow .btn-line{border-color:var(--on-main);color:var(--on-main)}
+#flow .btn-line:hover{background:var(--on-main);color:var(--main-deep)}
 @media (max-width:1024px){
   .hero-visual{height:auto;min-height:0;order:0}
   .hero-copy{padding:96px 24px 120px}

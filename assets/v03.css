@@ -24,6 +24,11 @@ header.site{border-bottom:2px solid var(--text);backdrop-filter:none;background:
 .checks li::before{border-radius:0}
 .route .pt{border-radius:0}
 .route::before{background:var(--text);height:2px}
+/* メリハリ：見出しを太く・数字を大きく */
+.h2{font-weight:800}
+.stats b{font-size:44px}
+.sec .h2::after{content:"";display:block;width:56px;height:6px;background:var(--accent);margin:14px auto 0}
+.intro .label+.intro-statement{margin-top:6px}
 @media(hover:hover) and (pointer:fine){.card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--text)}}
 @media (max-width:1024px){
   .route::before{background:var(--text);width:2px}

@@ -20,6 +20,16 @@ header.site .wrap{height:68px;width:calc(100% - 40px)}
 .float-cta.show{opacity:1;visibility:visible;transform:none}
 .float-cta .arw{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--on-accent)}
 .float-cta:hover .arw{transform:rotate(-45deg)}
+/* メリハリ：見出しを太く・数字を大きく */
+.h2{font-weight:800}
+.stats b{font-size:44px}
+/* メリハリ：濃い色の帯セクション（#platform） */
+#platform{background:var(--main-deep);color:var(--on-main)}
+#platform .label{color:var(--accent)}
+#platform .lead,#platform p{color:color-mix(in oklch,var(--on-main) 82%,transparent)}
+#platform h2,#platform h3{color:var(--on-main)}
+#platform .card h3{color:var(--text)}
+#platform .card p{color:var(--text-sub)}
 @media (max-width:1024px){
   body.menu-open .gnav{top:calc(100% + 10px);border:1px solid var(--line);border-radius:24px}
   .hero-visual{height:auto;min-height:0;order:0}
